@@ -13,11 +13,13 @@ import { connect } from 'react-redux';
 class App extends Component {
   render() {
     return (
+
+      
       <Router>
           <div className="App">
               <nav>
                 <ul>
-                  <li><Link to="/">Header</Link></li>
+               <Header/> 
                   <li><Link to="/1">How Do You Feel?</Link></li>
                   <li><Link to="/2">Do You Understand?</Link></li>
                   <li><Link to="/3">Are You Being Supported?</Link></li>
@@ -25,7 +27,7 @@ class App extends Component {
                   <li><Link to="/5">Thank You</Link></li>
                 </ul>
               </nav>
-              <Route exact path="/" component= {Header} />
+              
               <Route path="/1" component= {HowDoYouFeel} />
               <Route path="/2" component= {DoYouUnderstandContent} />
               <Route path="/3" component= {AreYouBeingSupported} />

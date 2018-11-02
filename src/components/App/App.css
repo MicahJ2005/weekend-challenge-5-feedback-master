@@ -17,3 +17,14 @@
   font-size: large;
 }
 
+.header{
+  background-color: blue;
+  list-style-type: none;
+  height: 75px;
+  font-size: 50px;
+}
+
+img{
+  height: 60px;
+  align-items: initial
+}

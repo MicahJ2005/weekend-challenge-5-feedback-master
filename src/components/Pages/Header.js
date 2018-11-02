@@ -7,7 +7,10 @@ class Header extends Component {
   
       render() {
         return (
-         <li>In Header</li>
+        <header className="header">
+
+         <li><img alt="goat" src='images/goat_small.jpg'/> FEEDBACK!</li>
+         </header>
         )
       }
   }

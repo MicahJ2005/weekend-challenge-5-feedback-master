@@ -1,10 +1,11 @@
 
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
-console.log('in HowDoYouFeel');
+// import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+// console.log('in HowDoYouFeel');
 
 const emptyHowDoYouFeel = {
-    feeling:'',        
+    feeling: '',        
 };
 
 class HowDoYouFeel extends Component {
@@ -15,14 +16,20 @@ class HowDoYouFeel extends Component {
         this.setState({
             [event.target.name]: event.target.value,
         });
-    }
+    };
     
 
     handleSubmit = (event) => {
-        console.log('in Handle Submit on HowDoYouFeel', event); //event is coming back undefined
+        console.log('in Handle Submit on HowDoYouFeel'); //event is coming back undefined
         event.preventDefault();
+        this.props.dispatch({ type: 'ADD_FEELING', payload: this.state});
+        this.props.history.push('/2')
         
-    }
+    };
+
+    clearSupportField = () => {
+        this.setState(emptyHowDoYouFeel);
+    };
   
       render() {
         return (
@@ -39,4 +46,4 @@ class HowDoYouFeel extends Component {
       }
   }
   
-  export default withRouter(HowDoYouFeel);
+  export default connect()(HowDoYouFeel);

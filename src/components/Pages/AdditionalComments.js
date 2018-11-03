@@ -1,15 +1,48 @@
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
+// import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
 
+const emptyAdditionalComments = {
+    comments: '',        
+};
 
-console.log('in AdditionalComments');
+// console.log('in AdditionalComments');
 class AdditionalComments extends Component {
+    state = emptyAdditionalComments;
+    
+    handleChange = (event) => {
+        console.log('in handleChange on AdditionalComments', event.target.value);
+        this.setState({
+            [event.target.name]: event.target.value,
+        });
+    }
+    
+
+    handleSubmit = (event) => {
+        console.log('in Handle Submit on AdditionalComments', event.target.value); 
+        event.preventDefault();
+        this.props.dispatch({ type: 'ADD_COMMENT', payload: this.state});
+        this.props.history.push('/5')
+        
+    };
+
+    clearSupportField = () => {
+        this.setState(emptyAdditionalComments);
+    };
   
       render() {
         return (
-         <li>In AdditionalComments</li>
+        <div>
+            <h1>4 of 4 Pages</h1>
+            <h2>Any comments you want to leave? </h2>
+            <form onSubmit={this.handleSubmit}>
+                <input onChange={this.handleChange} type="text" value={this.state.comments} placeholder="Add Comment Here" name="comments" />
+                <input type="submit" value="NEXT" />
+            </form>
+        </div> 
+         
         )
       }
   }
   
-  export default withRouter(AdditionalComments);
+  export default connect()(AdditionalComments);

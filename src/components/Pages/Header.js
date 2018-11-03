@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 
-console.log('in Header');
+// console.log('in Header');
 class Header extends Component {
   
       render() {

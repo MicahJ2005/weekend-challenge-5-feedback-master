@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 // import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
 
 
 // console.log('in Admin');
@@ -38,13 +40,30 @@ class Admin extends Component {
             alert('Bad stuff happened! Oh no!');
           })
         }
+
+        submit = (id) => {
+            confirmAlert({
+              title: 'Confirm to submit',
+              message: 'Are you sure to do this.',
+              buttons: [
+                {
+                  label: 'Yes',
+                  onClick: () => this.deleteFeedback(id),
+                },
+                {
+                  label: 'No',
+                  onClick: () => alert('Click No')
+                }
+              ]
+            })
+          };
       
 
       render() {
         return (
         <div>
             <h1>ALL ORDERS</h1>
-                <table>
+                <table className="Table">
                     <thead>
                         <tr>
                             <td>Feeling</td>
@@ -61,7 +80,7 @@ class Admin extends Component {
                             <td>{feedback.understanding}</td>
                             <td>{feedback.support}</td>
                             <td>{feedback.comments}</td>
-                            <td><button onClick={() => this.deleteFeedback(feedback.id)}>DELETE</button></td> 
+                            <td><button onClick={() => this.submit(feedback.id)}>DELETE</button></td> 
                         </tr> 
                         )} 
                     </tbody>

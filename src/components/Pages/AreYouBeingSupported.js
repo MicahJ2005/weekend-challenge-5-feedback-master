@@ -34,8 +34,8 @@ class AreYouBeingSupported extends Component {
       render() {
         return (
         <div>
-            <h1>3 of 4 Pages</h1>
-            <h2>How well are you being supported? </h2>
+            <h2>3 of 4 Pages</h2>
+            <h1>How well are you being supported? </h1>
             <form onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChange} type="number" value={this.state.support} placeholder="number 1-5" name="support" />
                 <input type="submit" value="NEXT" />

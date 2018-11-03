@@ -33,8 +33,8 @@ class AdditionalComments extends Component {
       render() {
         return (
         <div>
-            <h1>4 of 4 Pages</h1>
-            <h2>Any comments you want to leave? </h2>
+            <h2>4 of 4 Pages</h2>
+            <h1>Any comments you want to leave? </h1>
             <form onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChange} type="text" value={this.state.comments} placeholder="Add Comment Here" name="comments" />
                 <input type="submit" value="NEXT" />

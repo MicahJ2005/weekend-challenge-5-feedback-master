@@ -29,8 +29,8 @@ class DoYouUnderstandContent extends Component {
       render() {
         return (
         <div>
-            <h1>2 of 4 Pages</h1>
-            <h2>How well are you understanding the content? </h2>
+            <h2>2 of 4 Pages</h2>
+            <h1>How well are you understanding the content? </h1>
             <form onSubmit={this.handleSubmit}>
                 <input onChange={this.handleChange} type="number" value={this.state.understanding} placeholder="number 1-5" name="understanding" />
                 <input type="submit" value="NEXT" />

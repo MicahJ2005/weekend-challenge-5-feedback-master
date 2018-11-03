@@ -33,11 +33,12 @@ class ThankYou extends Component {
       render() {
         return (
          <div> 
+            <button onClick={this.completeFeedback} type="button" value="HOME">SUBMIT FEEDBACK</button>
+            
             <li>Thank You for your Feedback!</li>
 
-            <li>YOU ARE AWESEME!</li>
-
-            <button onClick={this.completeFeedback} type="button" value="HOME">SUBMIT FEEDBACK</button>
+            <li>YOU ARE AWESOME!</li>
+         
          </div>  
         )
       }

@@ -1,18 +1,26 @@
 import React, {Component} from 'react';
-
+import { connect } from 'react-redux';
 
 
 // console.log('in Header');
 class Header extends Component {
   
+  // adminButton = (event) => {
+  //   console.log('in adminButton');
+  //   event.preventDefault();
+    
+  //   this.props.history.push('/admin');
+  // }
+
       render() {
         return (
         <header className="header">
 
-         <li><img alt="goat" src='images/goat_small.jpg'/> FEEDBACK!</li>
+         <li><img alt="goat" src='images/goat_small.jpg'/> FEEDBACK! <button onClick={this.adminButton} type="button" value="ADMIN">ADMIN ONLY!</button></li>
+         
          </header>
         )
       }
   }
   
-  export default Header;
+  export default connect() (Header);

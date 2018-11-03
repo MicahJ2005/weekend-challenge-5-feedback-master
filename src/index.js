@@ -25,9 +25,11 @@ const feedbackReducer = (state = [], action) => {
         console.log(action.payload);
         state = {...state, ...action.payload};
     }
-    // else if(action.type === 'ADD_THANKYOU'){
-    //     console.log(action.payload);
-    //     state = [];
+    // else if ( action.type === 'DELETE_FEEDBACK' ) {
+    //     console.log('Handling delete of employee', state, action.payload);
+    //     const feedbackToDelete = action.payload;
+    //     const matchFeedback = feedback => feedback.id !== feedbackToDelete.id;
+    //     state = state.filter(matchFeedback);
     // }
     console.log('this is current state:', state);
     

@@ -7,33 +7,65 @@ import { connect } from 'react-redux';
 // console.log('in Admin');
 class Admin extends Component {
   
+    state= {feedback: []};
 
     componentDidMount() {
         this.getFeedback();
       };
 
-      getFeedback = () => {
+      getFeedback = (props) => {
         axios.get('/prime_feedback')
         .then((response) => {
             console.log('GET Response', response.data);
-            
-            this.props.dispatch({ type: 'GET_FEEDBACK', payload: response.data})
+            this.setState({
+                feedback: response.data
+            })
         })
         .catch((error) => {
             alert('error in getFeedback in Admin.js', error);
         })
       }
 
+      deleteFeedback = (id) => {
+        axios({
+            method: 'DELETE',
+            url: `/prime_feedback/${id}`
+          })
+          .then( (response) => {
+            this.getFeedback();
+          })
+          .catch( (error) => {
+            alert('Bad stuff happened! Oh no!');
+          })
+        }
+      
 
       render() {
         return (
         <div>
-            <li>In Admin</li>
-            {/* {this.state.feedback.map((feedback, index)=>
-                <li key={index}>{feedback.index}</li>
-                )} */}
-            <pre>{JSON.stringify(this.props.reduxState)}</pre>
-
+            <h1>ALL ORDERS</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Feeling</td>
+                            <td>Understanding</td>
+                            <td>Support</td>
+                            <td>Comments</td>
+                            <td>Delete?</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.feedback.map(feedback =>
+                        <tr key={feedback.id}>
+                            <td >{feedback.feeling}</td>
+                            <td>{feedback.understanding}</td>
+                            <td>{feedback.support}</td>
+                            <td>{feedback.comments}</td>
+                            <td><button onClick={() => this.deleteFeedback(feedback.id)}>DELETE</button></td> 
+                        </tr> 
+                        )} 
+                    </tbody>
+                </table>
         </div>
 
         )

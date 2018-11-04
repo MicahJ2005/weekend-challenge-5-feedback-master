@@ -22,7 +22,7 @@ class ThankYou extends Component {
     completeFeedback = (props) => {
         console.log('new feedback', this.props.reduxState.feedbackReducer );
         // this.props.dispatch({ type: 'ADD_THANKYOU', payload: this.state});
-        this.props.history.push('/1');
+        this.props.history.push('/');
         let newFeedback = this.props.reduxState.feedbackReducer;
         axios({
             method: 'POST',

@@ -28,7 +28,7 @@ class App extends Component {
               </nav>
               {/* created routes for all pages, including the admin page
               (special button in Header will redirect to the admi page ) */}
-              <Route exact path="/1" component= {HowDoYouFeel} />
+              <Route exact path="/" component= {HowDoYouFeel} />
               <Route path="/2" component= {DoYouUnderstandContent} />
               <Route path="/3" component= {AreYouBeingSupported} />
               <Route path="/4" component= {AdditionalComments} />

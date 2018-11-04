@@ -2,9 +2,17 @@ import React, {Component} from 'react';
 // import {withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
-// import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+// import Icon from '@material-ui/core/Icon';
+// import IconButton from '@material-ui/core/IconButton';
+
 
 const mapReduxStateToProps = ( reduxState ) => ({ reduxState });
+
 
 // console.log('in ThankYou');
 class ThankYou extends Component {
@@ -29,17 +37,25 @@ class ThankYou extends Component {
         })
 
     }
-
+    
       render() {
+    
         return (
-         <div> 
-            <button onClick={this.completeFeedback} type="button" value="HOME">SUBMIT FEEDBACK</button>
             
-            <li>Thank You for your Feedback!</li>
+         <Card > 
+             <CardContent className="submitButton">
+                 <CardActions>
+                    <Button onClick={this.completeFeedback} variant="outlined" color="primary" type="button" value="HOME">Send Feedback</Button>
+                </CardActions>
+            </CardContent>
+                <br></br>
+            <CardContent>
+                <Typography color="textSecondary" component="h2" variant="h5">Thank You for your Feedback!</Typography>
 
-            <li>YOU ARE AWESOME!</li>
-         
-         </div>  
+                <Typography color="textPrimary" component="h1" variant="h2">YOU ARE AWESOME!</Typography>
+                
+            </CardContent>
+         </Card>  
         )
       }
   }

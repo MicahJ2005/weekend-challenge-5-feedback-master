@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 // import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
-
+import Button from '@material-ui/core/Button';
 
 // console.log('in Header');
 class Header extends Component {
@@ -16,7 +16,7 @@ class Header extends Component {
         return (
         <header className="header">
 
-         <li><img alt="goat" src='images/goat_small.jpg'/> FEEDBACK! <button onClick={this.adminButton} type="button" value="ADMIN" className="adminButton">ADMIN ONLY!</button></li>
+         <li><img alt="goat" src='images/feedbackPic.jpg'/> FEEDBACK! <Button onClick={this.adminButton} variant="contained" color="secondary" type="button" value="ADMIN" size="small" className="adminButton">ADMIN ONLY!</Button></li>
          
          </header>
         )

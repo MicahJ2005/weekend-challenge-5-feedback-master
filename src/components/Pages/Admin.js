@@ -1,12 +1,30 @@
 import React, {Component} from 'react';
-// import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css' // Import css
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Typography from '@material-ui/core/Typography';
+// import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
+// import { withStyles } from '@material-ui/core/styles';
+// // console.log('in Admin');
 
+// const styles = theme => ({
+//     button: {
+//       margin: theme.spacing.unit,
+//     },
+//     input: {
+//       display: 'none',
+//     },
+//   })(Button);
 
-// console.log('in Admin');
 class Admin extends Component {
   
     state= {feedback: []};
@@ -61,31 +79,31 @@ class Admin extends Component {
 
       render() {
         return (
-        <div>
-            <h1>ALL ORDERS</h1>
-                <table className="Table">
-                    <thead>
-                        <tr>
-                            <td>Feeling</td>
-                            <td>Understanding</td>
-                            <td>Support</td>
-                            <td>Comments</td>
-                            <td>Delete?</td>
-                        </tr>
-                    </thead>
-                    <tbody>
+        <Paper>
+            <Typography color="textPrimary" variant="h5">ALL FEEDBACK</Typography>
+                <Table className="Table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Feeling</TableCell>
+                            <TableCell>Understanding</TableCell>
+                            <TableCell>Support</TableCell>
+                            <TableCell>Comments</TableCell>
+                            <TableCell>Delete?</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {this.state.feedback.map(feedback =>
-                        <tr key={feedback.id}>
-                            <td >{feedback.feeling}</td>
-                            <td>{feedback.understanding}</td>
-                            <td>{feedback.support}</td>
-                            <td>{feedback.comments}</td>
-                            <td><button onClick={() => this.submit(feedback.id)}>DELETE</button></td> 
-                        </tr> 
+                        <TableRow key={feedback.id}>
+                            <TableCell >{feedback.feeling}</TableCell>
+                            <TableCell>{feedback.understanding}</TableCell>
+                            <TableCell>{feedback.support}</TableCell>
+                            <TableCell>{feedback.comments}</TableCell>
+                            <TableCell><IconButton aria-label="Delete" onClick={() => this.submit(feedback.id)}><DeleteIcon /></IconButton></TableCell> 
+                        </TableRow> 
                         )} 
-                    </tbody>
-                </table>
-        </div>
+                    </TableBody>
+                </Table>
+        </Paper>
 
         )
       }
@@ -95,4 +113,5 @@ class Admin extends Component {
     reduxState
   });
 
+//   withStyles(styles);
   export default connect(mapReduxStateToProps)(Admin);

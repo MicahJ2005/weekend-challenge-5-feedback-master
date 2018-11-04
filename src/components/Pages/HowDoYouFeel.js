@@ -10,7 +10,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 
+/// imported all necessary material UI and react/redux imports
 
+//setting a constant empying onject
 const emptyHowDoYouFeel = {
     feeling: '',        
 };
@@ -18,6 +20,7 @@ const emptyHowDoYouFeel = {
 class HowDoYouFeel extends Component {
     state = emptyHowDoYouFeel;
 
+    ///handleChange is changing state on the click event
     handleChange = (event) => {
         console.log('in handleChange on HowDoYouFeel');
         this.setState({
@@ -25,7 +28,8 @@ class HowDoYouFeel extends Component {
         });
     };
     
-
+    /// this function is calling our TYPE and sending payload. 
+    ///It is also pushing to the next page
     handleSubmit = (event) => {
         console.log('in Handle Submit on HowDoYouFeel'); //event is coming back undefined
         event.preventDefault();
@@ -33,7 +37,7 @@ class HowDoYouFeel extends Component {
         this.props.history.push('/2');
         
     };
-
+/// resetting state 
     clearSupportField = () => {
         this.setState(emptyHowDoYouFeel);
     };
@@ -64,4 +68,5 @@ class HowDoYouFeel extends Component {
       }
   }
   
+  ///connecting react-redux
   export default connect()(HowDoYouFeel);

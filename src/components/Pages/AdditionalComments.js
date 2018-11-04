@@ -7,15 +7,17 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
+/// imported all necessary material UI and react/redux imports
 
+//setting a constant emptying object
 const emptyAdditionalComments = {
     comments: '',        
 };
 
-// console.log('in AdditionalComments');
+
 class AdditionalComments extends Component {
     state = emptyAdditionalComments;
-    
+    /// setting state to click event value
     handleChange = (event) => {
         console.log('in handleChange on AdditionalComments', event.target.value);
         this.setState({
@@ -23,7 +25,8 @@ class AdditionalComments extends Component {
         });
     }
     
-
+    ///handleSubmit is sending information to reducer 
+    /// and pushing user to next page
     handleSubmit = (event) => {
         console.log('in Handle Submit on AdditionalComments', event.target.value); 
         event.preventDefault();
@@ -31,7 +34,7 @@ class AdditionalComments extends Component {
         this.props.history.push('/5')
         
     };
-
+    // clearing inputs
     clearSupportField = () => {
         this.setState(emptyAdditionalComments);
     };
@@ -54,5 +57,5 @@ class AdditionalComments extends Component {
         )
       }
   }
-  
+  ///connecting page to react-redux 
   export default connect()(AdditionalComments);

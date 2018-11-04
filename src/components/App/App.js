@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route} from 'react-router-dom'; // don't need LINK
 import Admin from '../Pages/Admin'
@@ -11,6 +10,8 @@ import ThankYou from '../Pages/ThankYou';
 import Header from '../Pages/Header';
 import { connect } from 'react-redux';
 
+////All components and react/redux imports listed above
+
 class App extends Component {
   render() {
     return (
@@ -20,16 +21,13 @@ class App extends Component {
           <div className="App">
               <nav>
                 <ul>
-               <Header/> 
-                  {/* <li><Link to="/1">How Do You Feel?</Link></li>
-                  <li><Link to="/2">Do You Understand?</Link></li>
-                  <li><Link to="/3">Are You Being Supported?</Link></li>
-                  <li><Link to="/4">Any Additional Comments?</Link></li>
-                  <li><Link to="/5">Thank You</Link></li> */}
+                {/* imported separate Header component */}
+               <Header/>
                 
                 </ul>
               </nav>
-              
+              {/* created routes for all pages, including the admin page
+              (special button in Header will redirect to the admi page ) */}
               <Route exact path="/1" component= {HowDoYouFeel} />
               <Route path="/2" component= {DoYouUnderstandContent} />
               <Route path="/3" component= {AreYouBeingSupported} />

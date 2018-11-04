@@ -7,16 +7,18 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-// import Icon from '@material-ui/core/Icon';
-// import IconButton from '@material-ui/core/IconButton';
 
+/// imported all necessary material UI and react/redux imports
 
+//bringing in reduxState
 const mapReduxStateToProps = ( reduxState ) => ({ reduxState });
 
 
 // console.log('in ThankYou');
 class ThankYou extends Component {
   
+    ///On submit button this function is sending the new feedback 
+    ///at reduxState and POSTing it.
     completeFeedback = (props) => {
         console.log('new feedback', this.props.reduxState.feedbackReducer );
         // this.props.dispatch({ type: 'ADD_THANKYOU', payload: this.state});
@@ -60,4 +62,5 @@ class ThankYou extends Component {
       }
   }
   
+  ///connecting react-redux
   export default connect(mapReduxStateToProps)(ThankYou);

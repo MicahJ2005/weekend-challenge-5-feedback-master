@@ -7,6 +7,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+
+///Reducer is handling if/else statements for all actions below
 const feedbackReducer = (state = [], action) => {
     // console.log('in feedbackReducer');
     if(action.type === 'ADD_FEELING'){
@@ -31,7 +33,7 @@ const feedbackReducer = (state = [], action) => {
     return state
 }
 
-
+///redux store is handling the distribution of information for my feedbackReducer
 const reduxStore = createStore(
     combineReducers({
       feedbackReducer,

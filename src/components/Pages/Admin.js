@@ -12,27 +12,17 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
-// import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
-// import { withStyles } from '@material-ui/core/styles';
-// // console.log('in Admin');
 
-// const styles = theme => ({
-//     button: {
-//       margin: theme.spacing.unit,
-//     },
-//     input: {
-//       display: 'none',
-//     },
-//   })(Button);
 
 class Admin extends Component {
   
     state= {feedback: []};
-
+    // mounting GET response to the DOM, when rendered
     componentDidMount() {
         this.getFeedback();
       };
 
+      ///GET acios is getting information so it can be rendered to the DOM
       getFeedback = (props) => {
         axios.get('/prime_feedback')
         .then((response) => {
@@ -46,6 +36,9 @@ class Admin extends Component {
         })
       }
 
+      ///Delete function will delete selected line of feedback
+      ///from the admin list, update the DB, and rerender the 
+      /// list using this.getFeedback();
       deleteFeedback = (id) => {
         axios({
             method: 'DELETE',
@@ -58,7 +51,8 @@ class Admin extends Component {
             alert('Bad stuff happened! Oh no!');
           })
         }
-
+        /// this function is asking the admin user to verify
+        /// whether or not they want to delete a line of feedback
         submit = (id) => {
             confirmAlert({
               title: 'Confirm to submit',
@@ -113,5 +107,5 @@ class Admin extends Component {
     reduxState
   });
 
-//   withStyles(styles);
+///connecting to react-redux and mapping props
   export default connect(mapReduxStateToProps)(Admin);

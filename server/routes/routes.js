@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+///GET route/router created to get list of feedback from DB
 router.get('/', (req, res) => {
     console.log('GET prime_feedback');
     pool.query('SELECT * from "feedback";')
@@ -13,6 +14,7 @@ router.get('/', (req, res) => {
     });
 });
 
+/// POST route/router to update new feedback in the DB
 router.post('/', (req, res) => {
     console.log('POST prime_feedback');
     const newFeedback = req.body;
@@ -28,6 +30,7 @@ router.post('/', (req, res) => {
         })
 })
 
+/// DELETE route/Router that will remove line of feedback from DB and update the admin page
 router.delete('/:id', (req, res) => {
     let reqId = req.params.id;
     console.log('Delete request for id', reqId);

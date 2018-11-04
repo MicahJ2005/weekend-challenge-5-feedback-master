@@ -9,14 +9,17 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 
+/// imported all necessary material UI and react/redux imports
+
+//setting a constant emptying object
 const emptyDoYouUnderstandContent = {
     understanding: '',        
 };
 
-// console.log('in DoYouUnderstandContent');
 class DoYouUnderstandContent extends Component {
     state = emptyDoYouUnderstandContent;
     
+    /// setting state to clcik event value
     handleChange = (event) => {
         console.log('in handleChange on DoYouUnderstandContent', event.target.value);
         this.setState({
@@ -24,7 +27,8 @@ class DoYouUnderstandContent extends Component {
         });
     }
     
-
+    ///handleSubmit is sending information to reducer 
+    /// and pushing user to next page
     handleSubmit = (event) => {
         console.log('in Handle Submit on DoYouUnderstandContent', event.target.value); 
         event.preventDefault();
@@ -59,5 +63,5 @@ class DoYouUnderstandContent extends Component {
       }
   }
    
-  
+  ///connecting page to react-redux 
   export default connect()(DoYouUnderstandContent);

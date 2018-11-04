@@ -8,16 +8,19 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
+/// imported all necessary material UI and react/redux imports
+
+//setting a constant emptying object
 
 const emptyAreYouBeingSupported = {
     support: '',        
 };
 
-// console.log('in AreYouBeingSupported');
 class AreYouBeingSupported extends Component {
   
     state = emptyAreYouBeingSupported;
     
+     /// setting state to clcik event value
     handleChange = (event) => {
         console.log('in handleChange on AreYouBeingSupported', event.target.value);
         this.setState({
@@ -25,7 +28,8 @@ class AreYouBeingSupported extends Component {
         });
     }
     
-
+    ///handleSubmit is sending information to reducer 
+    /// and pushing user to next page
     handleSubmit = (event) => {
         console.log('in Handle Submit on AreYouBeingSupported', event.target.value); 
         event.preventDefault();
@@ -33,7 +37,7 @@ class AreYouBeingSupported extends Component {
         this.props.history.push('/4')
         
     };
-
+    ///clearing inputs
     clearSupportField = () => {
         this.setState(emptyAreYouBeingSupported);
     };
@@ -63,7 +67,7 @@ class AreYouBeingSupported extends Component {
         )
       }
   }
-  
+  ///connecting page to react-redux 
   export default connect()(AreYouBeingSupported);
 
 

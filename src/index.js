@@ -30,7 +30,7 @@ const feedbackReducer = (state = [], action) => {
  
     console.log('this is current state:', state);
     
-    return state
+    return state;
 }
 
 ///redux store is handling the distribution of information for my feedbackReducer

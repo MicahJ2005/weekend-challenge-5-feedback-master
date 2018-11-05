@@ -33,6 +33,8 @@ class HowDoYouFeel extends Component {
     handleSubmit = (event) => {
         console.log('in Handle Submit on HowDoYouFeel'); //event is coming back undefined
         event.preventDefault();
+
+        //in live solve Kris put Dispatch in handleChange
         this.props.dispatch({ type: 'ADD_FEELING', payload: this.state});
         this.props.history.push('/2');
         

@@ -15,7 +15,7 @@ class Header extends Component {
 
       render() {
         return (
-        <header className="header">
+        <header id="header">
 
          <li><img alt="people" src='images/feedbackPic.jpg'/> FEEDBACK! <Button onClick={this.adminButton} variant="contained" color="secondary" type="button" value="ADMIN" size="small" className="adminButton">ADMIN ONLY!</Button></li>
          

@@ -44,7 +44,7 @@ class ThankYou extends Component {
     
         return (
             
-         <Card > 
+        <Card id="cards"> 
              <CardContent className="submitButton">
                  <CardActions>
                     <Button onClick={this.completeFeedback} variant="outlined" color="primary" type="button" value="HOME">Send Feedback</Button>

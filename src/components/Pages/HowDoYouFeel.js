@@ -44,7 +44,7 @@ class HowDoYouFeel extends Component {
   
       render() {
         return (
-        <Card>
+        <Card id="cards">
             <CardContent>
                 <Typography color="textSecondary" variant="h5">1 of 4 Pages</Typography>
                 <Typography color="textPrimary" variant="h3">How are you feeling today?</Typography>

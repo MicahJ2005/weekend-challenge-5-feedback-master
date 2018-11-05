@@ -41,16 +41,16 @@ class AdditionalComments extends Component {
   
       render() {
         return (
-        <Card>
+        <Card id="cards">
             <CardContent>
-            <Typography color="textSecondary" variant="h5">4 of 4 Pages</Typography>
-            <Typography color="textPrimary" variant="h3">Any comments you want to leave? </Typography>
-            <br></br>
-            <FormControl onSubmit={this.handleSubmit}>
-                <TextField onChange={this.handleChange} type="text" value={this.state.comments} placeholder="Add Comment Here" name="comments"></TextField>
+                <Typography color="textSecondary" variant="h5">4 of 4 Pages</Typography>
+                <Typography color="textPrimary" variant="h3">Any comments you want to leave? </Typography>
                 <br></br>
-                <Button onClick={this.handleSubmit} variant="contained" color="primary" type="submit" value="NEXT">NEXT</Button>
-            </FormControl>
+                    <FormControl onSubmit={this.handleSubmit}>
+                        <TextField onChange={this.handleChange} type="text" value={this.state.comments} placeholder="Add Comment Here" name="comments"></TextField>
+                        <br></br>
+                        <Button onClick={this.handleSubmit} variant="contained" color="primary" type="submit" value="NEXT">NEXT</Button>
+                    </FormControl>
             </CardContent>
         </Card> 
          

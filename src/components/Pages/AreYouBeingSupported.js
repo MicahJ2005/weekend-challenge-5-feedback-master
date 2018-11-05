@@ -44,7 +44,7 @@ class AreYouBeingSupported extends Component {
   
       render() {
         return (
-        <Card>
+        <Card id="cards">
             <CardContent>
                 <Typography color="textSecondary" variant="h5">3 of 4 Pages</Typography>
                 <Typography color="textPrimary" variant="h3">How well are you being supported? </Typography>

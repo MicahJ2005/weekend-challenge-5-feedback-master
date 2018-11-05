@@ -19,13 +19,9 @@ class App extends Component {
       
       <Router>
           <div className="App">
-              <nav>
-                <ul>
                 {/* imported separate Header component */}
                <Header/>
-                
-                </ul>
-              </nav>
+              
               {/* created routes for all pages, including the admin page
               (special button in Header will redirect to the admi page ) */}
               <Route exact path="/" component= {HowDoYouFeel} />

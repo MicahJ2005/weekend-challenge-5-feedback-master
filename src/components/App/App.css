@@ -46,4 +46,7 @@ Table, tr, td, thead, tbody{
   align-items: center
 }
 
+.Card{
+  background-color: grey;
+}
 
